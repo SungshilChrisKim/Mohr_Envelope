@@ -1,6 +1,6 @@
 # Mohr_Envelope
 Visualize Mohr Circle and Failure Envelope 
-for Python 3.5.2
+for Python 3.5.2 (upto 3.9.13 tested)
 
 Why I made this code?
 -------------
