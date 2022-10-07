@@ -1,7 +1,8 @@
+import numpy as np
 import pandas as pd
 from scipy import stats
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 class Read:
     def __init__(self, promptFileName):
@@ -53,10 +54,10 @@ class ReadDF:
         self.dataframe = self.dataframe.sort_values(by=[1])
 
         test_name, stress_Minor, stress_Major, circleCenter, circleRadius = self.dataframe[0].tolist(), \
-               self.dataframe[1].tolist(), \
-               self.dataframe[2].tolist(), \
-               self.dataframe[3].tolist(), \
-               self.dataframe[4].tolist()
+                                                                            self.dataframe[1].tolist(), \
+                                                                            self.dataframe[2].tolist(), \
+                                                                            self.dataframe[3].tolist(), \
+                                                                            self.dataframe[4].tolist()
 
         return test_name, stress_Minor, stress_Major, circleCenter, circleRadius
 
@@ -76,7 +77,8 @@ class getEnvelope:
         :param radius: Radius of the Mohr Circle
         :type radius: list[float]
 
-        :return: slope (Slope of the regression line), intercept (Intercept of the regression line), meetPointX (X intersection), meetPointY (Y intersection)
+        :return: slope (Slope of the regression line), intercept (Intercept of the regression line),
+            meetPointX (X intersection), meetPointY (Y intersection)
         :rtype: list[float]
         """
 
@@ -90,7 +92,8 @@ class getEnvelope:
 
     def getreallineParam(self, _center, _radius):
         """
-        Calculate averages of difference between distance from circle's center to "Failure envelope candidate" and circle's radius.
+        Calculate averages of difference between distance from circle's center to "Failure envelope candidate"
+            and circle's radius.
 
         :param _center: Center of the Mohr Circle
         :type _center: list[float]
@@ -138,13 +141,14 @@ class Visualize:
         # Patch Vs. ARTIST
         for j in range(len(_stress_Major)):
             if _test_name:
-                self.ax.add_patch(plt.Circle((_center_[j], 0), _radius_[j], edgecolor='red', ls='--', label=_test_name[j],
-                                          fill=False))  # draw mohr circle
+                self.ax.add_patch(
+                    plt.Circle((_center_[j], 0), _radius_[j], edgecolor='red', ls='--', label=_test_name[j],
+                               fill=False))  # draw mohr circle
             else:
                 self.ax.add_patch(plt.Circle((_center_[j], 0), _radius_[j], edgecolor='red', ls='--',
-                                          fill=False))  # draw mohr circle
+                                             fill=False))  # draw mohr circle
 
-        self.ax.legend(fontsize=10)
+        # self.ax.legend(fontsize=10)
 
     def drawEnvelope(self, pointX, pointY, _slope, _intercept, _stress_Minor_, center, _degr):
         """
