@@ -1,7 +1,6 @@
 import math
 import Mohr_Envelope as mohr
-import pandas as pd
-
+# import pandas as pd
 ''' 
 LOAD DATA FROM CSV
 '''
