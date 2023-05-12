@@ -9,7 +9,7 @@ import sys
 # Check python compatibility before proceeding
 try:
     # version_flag = sys.version_info >= (3, 10)
-    assert ((3, 9, 14) >= sys.version_info >= (3, 5))
+    assert ((3, 9, 20) >= sys.version_info >= (3, 5))
     # assert (sys.version_info >= (3, 10), 'error!')
     # print("Python Version: %s" % sys.version.split('\n')[0])
 except AssertionError:
